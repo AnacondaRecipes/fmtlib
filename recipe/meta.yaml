@@ -14,7 +14,7 @@ build:
 
 requirements:
   build:
-    - git    # [win]
+    - git    
     - cmake
     - make   # [unix]
     - ninja  # [win]
