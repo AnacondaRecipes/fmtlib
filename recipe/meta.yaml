@@ -10,18 +10,28 @@ source:
   git_tag: {{ version }}
 
 build:
-  noarch: generic
   number: 0
 
 requirements:
   build:
     - cmake
+    - make   # [unix]
+    - ninja  # [win]
+    - {{ compiler('cxx') }}
+
+test:
+  commands:
+    # test for one file -- there should be many more
+    - test -f ${PREFIX}/include/fmt/ostream.h # [unix]
+    - if not exist %LIBRARY_INC%\fmt\ostream.h (exit 1)  # [win]
 
 about:
   home: https://github.com/fmtlib/fmt
   summary: "{fmt} is an open-source formatting library providing a fast and safe alternative to C stdio and C++ iostreams."
+  description: "Implementation of C++20 std::format"
   license: Custom
   license_file: LICENSE.rst
+  doc_url: https://fmt.dev/latest/index.html
 
 extra:
   recipe-maintainers:
