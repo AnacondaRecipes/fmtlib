@@ -8,6 +8,8 @@ cmake ^
   -G"Ninja" ^
   -S %SRC_DIR% ^
   -B %SRC_DIR%\build ^
+  -DCMAKE_BUILD_TYPE=Release  ^
+  -DBUILD_SHARED_LIBS=ON ^
   -DFMT_TEST=OFF ^
   -DFMT_DOC=OFF ^
   -DCMAKE_INSTALL_PREFIX="%PREFIX%"
